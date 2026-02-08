@@ -29,7 +29,6 @@ taskController.updateTask = async (req, res) => {
     const { task, isCompleted } = req.body;
     const updatedTask = await Task.findByIdAndUpdate(id, { task, isCompleted }, { new: true, runValidators: true });
     if (!updatedTask) return res.status(404).json({ status: "fail", error: "Task not found" });
-    c;
     res.status(200).json({ status: "ok", data: updatedTask });
   } catch (err) {
     res.status(400).json({ status: "fail", error: err });
